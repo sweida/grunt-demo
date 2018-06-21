@@ -3,7 +3,10 @@
 
 <a href="https://www.sweida.me/archives/12322.html"   target="_blank">详细教程</a>
 
-
+### 安装
+```
+npm install
+```
 ### 运行
 ```
 grunt
