@@ -11,3 +11,5 @@ npm install
 ```
 grunt
 ```
+
+> Gruntfile1.js文件为整个项目打包成build的配置，将Gruntfile1.js文件名修改成Gruntfile.js，再运行grunt即可
