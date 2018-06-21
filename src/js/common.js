@@ -51,12 +51,12 @@ $(document).ready(function(){
   });
   $(".section3 .tab li").click(function(){
     $(this).addClass('active').siblings().removeClass('active');
-    let i = $(this).index()
+    var i = $(this).index()
     $('.section3 .main_contan li').eq(i).addClass('active').siblings().removeClass('active');
   });
   $(".section5 .tab li").click(function(){
     $(this).addClass('active').siblings().removeClass('active');
-    let i = $(this).index()
+    var i = $(this).index()
     $('.section5 .main_contan li').eq(i).addClass('active').siblings().removeClass('active');
   });
 });

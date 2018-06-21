@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     concat: {
       cssConcat:{
         src:['src/css/*.css'],
-        dest:'dist/css/<%= pkg.name %> - <%= pkg.version %>.css' //dest 是目的地输出
+        dest:'dist/css/<%= pkg.name %> - <%= grunt.template.today("mm-dd") %>.css' //dest 是目的地输出
       },
       jsConcat:{
         src:'src/js/*.js',
@@ -27,11 +27,11 @@ module.exports = function(grunt) {
     },
     cssmin:{
       options:{
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("mm-dd") %> */\n'
       },
       build:{
-        src:'dist/css/<%=pkg.name %> - <%=pkg.version %>.css',//压缩是要压缩合并了的
-        dest:'dist/css/<%= pkg.name %> - <%= pkg.version %>.min.css' //dest 是目的地输出
+        src:'dist/css/*.css',//压缩是要压缩合并了的
+        dest:'dist/css/<%= pkg.name %> - <%= grunt.template.today("mm-dd") %>.min.css' //dest 是目的地输出
       }
     },
     uglify: {
