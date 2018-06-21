@@ -2,13 +2,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      // allOne: {
-      //   src: ['src/js/*.js'],
-      //   dest: 'dist/js/<%= pkg.name %>.js'
-      // },
       cssConcat:{
         src:['src/css/*.css'],
-        dest:'src/css/concat/<%= pkg.name %> - <%= pkg.version %>.css' //dest 是目的地输出
+        dest:'dist/css/<%= pkg.name %> - <%= pkg.version %>.css' //dest 是目的地输出
       },
       jsConcat:{
         src:'src/js/*.js',
@@ -31,11 +27,11 @@ module.exports = function(grunt) {
     },
     cssmin:{
       options:{
-        banner:'/*!<%= pkg.name %> - <%= pkg.version %>-'+'<%=grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build:{
-          src:'src/css/concat/<%=pkg.name %> - <%=pkg.version %>.css',//压缩是要压缩合并了的
-          dest:'dist/css/<%= pkg.name %> - <%= pkg.version %>.min.css' //dest 是目的地输出
+        src:'dist/css/<%=pkg.name %> - <%=pkg.version %>.css',//压缩是要压缩合并了的
+        dest:'dist/css/<%= pkg.name %> - <%= pkg.version %>.min.css' //dest 是目的地输出
       }
     },
     uglify: {
@@ -57,8 +53,8 @@ module.exports = function(grunt) {
   // 告诉grunt 我们在终端输入grunt时需要做些什么（注意先后顺序）
   grunt.registerTask('default', [
     'concat',
+    'cssmin',
     'babel',
-    'uglify',
-    'cssmin'
+    'uglify'
   ]);
 };
